@@ -15,6 +15,7 @@
     --font-text: 14px;
 
     --font-weight-main: 500;
+    --animation-transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -35,10 +36,14 @@ p {
 
 img {
     display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 .link {
     text-decoration: none;
+    display: block;
+    transition: box-shadow var(--animation-transition);
 }
 
 .marker-list {
@@ -100,11 +105,25 @@ img {
     text-decoration: none;
     color: var(--dark-color);
     letter-spacing: 0.02em;
+    list-style: none;
+    transition: color var(--animation-transition);
+}
+
+.team-icon {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    list-style: none;
+}
+
+.icon-list:nth-child(n + 2) {
+    margin-left: 10px;
 }
 
 .nav-link:hover,
 .nav-link:focus {
     color: var(--accent-color);
+    transition: color var(--animation-transition);
 }
 
 .marker-list .nav-link.current {
@@ -122,7 +141,7 @@ img {
 
 .contact-link {
     display: flex;
-    justify-content: center;
+    align-items: center;
     padding: 32px 0;
     font-size: var(--font-text);
     font-weight: var(--font-weight-main);
@@ -131,11 +150,13 @@ img {
     color: var(--primary-text-color);
     font-style: normal;
     letter-spacing: 0.02em;
+    transition: color var(--animation-transition);
 }
 
 .contact-link:hover,
 .contact-link:focus {
     color: var(--accent-color);
+    transition: color var(--animation-transition);
 }
 
 .section {
@@ -153,10 +174,6 @@ img {
     line-height: 1.19;
 
 }
-
-
-
-
 
 .header {
     font-family: var(--main-font);
@@ -222,6 +239,8 @@ img {
     cursor: pointer;
     border: none;
     border-radius: 4px;
+    transition: box-shadow var(--animation-transition), background-color var(--animation-transition),
+    color var(--animation-transition);
 }
 
 
@@ -229,6 +248,10 @@ img {
 .btn-menu:focus {
     background-color: var(--accent-color);
     color: var(--button-color);
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+        0px 2px 2px rgba(0, 0, 0, 0.12);
+        transition: box-shadow var(--animation-transition), background-color var(--animation-transition),
+    color var(--animation-transition);
 }
 
 /* hero */
@@ -245,7 +268,10 @@ img {
         url(../images/background-img1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     background-color: #2f303a;
+    margin: 0 auto;
+    max-width: 1600px;
 }
 
 .hero-title {
@@ -277,11 +303,13 @@ img {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background var(--animation-transition);
 }
 
-.btn-order:hover,
-.btn-order:focus {
+.button-order:hover,
+.button-order:focus {
     background-color: var(--accent-color);
+    transition: background var(--animation-transition);
 }
 
 /* преимущества */
@@ -373,8 +401,9 @@ img {
     color: var(--title-color);
     font-weight: 500;
     font-size: 16px;
-    line-height: 1.19px;
+    line-height: 1.19;
     text-decoration: none;
+    background-color: #FFFFFF;
 }
 
 .icon-wrapper {
@@ -391,13 +420,16 @@ img {
     height: 44px;
     color: #afb1b8;
     cursor: pointer;
+    transition: var(--animation-transition);
+    
 }
 
 .link-social-icon:hover,
 .link-social-icon:focus {
-    color: var(--secondary-color);
-    background-color: var(--hover-color);
+    color: var(--button-color);
+    background-color: var(--accent-color);
     border-radius: 50%;
+    transition: var(--animation-transition);
 }
 
 .link-social-icon:not(:last-child) {
@@ -443,12 +475,24 @@ img {
     color: #afb1b8;
     border: 1px solid #afb1b8;
     border-radius: 4px;
+    transition: color var(--animation-transition), border var(--animation-transition);
 }
 
 .link-icon:hover,
 .link-icon:focus {
-    color: #2196f3;
-    border: 1px solid #2196f3;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    transition: color var(--animation-transition), border var(--animation-transition);
+}
+
+.team-icon {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.list-icon-wrapper li {
+    list-style: none;
 }
 
 .icon-clients {
@@ -456,6 +500,21 @@ img {
 }
 
 /* portfolio */
+.port-item {
+    border: 1px solid #EEEEEE;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    flex-basis: calc((100% - 90px) / 3);
+}
+.port-item:hover .link,
+.port-item:focus .link{
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow var(--animation-transition);
+}
+
+
 
 .section-portfolio {
     padding-top: 94px;
@@ -490,64 +549,36 @@ img {
 
 }
 
+
 .cards-list {
     display: flex;
     flex-wrap: wrap;
     flex-basis: calc((100% - 90px) / 3);
     margin-left: -30px;
-    margin-top: -30px;
-}
-
-.cards-list>.item {
+    margin-bottom: -30px;
+  }
+  
+  .cards-list > .item {
     margin-left: 30px;
     margin-top: 30px;
-}
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .cards-list .item:hover {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
 
 .text {
+    margin-top: 4px;
     font-size: 16px;
     line-height: 1.88;
+    letter-spacing: 0.03em;
     text-decoration: none;
     color: var(--primary-text-color);
     display: block;
 }
 
-.link-img {
-    text-decoration: none;
-    color: var(--primary-text-color);
-}
 
-/* OVERLAY START*/
-.img-wrapper {
-    position: relative;
-    overflow: hidden;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-
-    padding: 63px 24px;
-
-    color: var(--button-color);
-    font-size: 18px;
-    line-height: 1.55;
-
-    transform: translateY(100%);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        background 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.link-img:hover .overlay,
-.link-img:focus .overlay {
-    transform: translateY(0%);
-    background: rgba(33, 150, 243, 0.9);
-}
-
-/* footer */
 .footer {
     background-color: var(--background-title);
     padding-bottom: 60px;
@@ -562,18 +593,21 @@ img {
     text-decoration: none;
     color: var(--button-color);
     font-style: normal;
+    transition: color var(--animation-transition);
 }
 
 .footer-list {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.6);
     font-style: normal;
+    transition: color var(--animation-transition);
 
 }
 
 .footer-list:hover,
 .footer-list:focus {
     color: var(--accent-color);
+    transition: color var(--animation-transition);
 }
 
 .footer .item:not(:last-child) {
@@ -633,6 +667,13 @@ img {
     border-radius: 50%;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
+    transition: background var(--animation-transition);
+}
+
+.footer-link-icon:hover,
+.footer-link-icon:focus {
+    background: var(--accent-color);
+    transition: background var(--animation-transition);
 }
 
 /* BACKDROP START*/
@@ -646,7 +687,7 @@ img {
     height: 100vh;
 
     background: rgba(0, 0, 0, 0.2);
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity var(--animation-transition), visibility var(--animation-transition);
 }
 
 .backdrop.is-hidden {
@@ -688,4 +729,40 @@ img {
     background: var(--button-color);
     border: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
+}
+/* OVERLAY START*/
+.img-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding-top: 63px;
+    padding-right: 24px;
+    padding-bottom: 63px;
+    padding-left: 24px;
+  
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(100%);
+    transition: transform var(--animation-transition), opacity var(--animation-transition);
+  
+    background-color: rgba(33, 150, 243, 0.9);
+    font-size: 18px;
+    line-height: 1.56;
+    letter-spacing: 0.03em;
+    color: var(--button-color);
+    opacity: 0;
+}
+
+
+.link-img:hover .overlay,
+.link-img:focus .overlay {
+    transform: translateY(0%);
+    background: rgba(33, 150, 243, 0.9);
 }
