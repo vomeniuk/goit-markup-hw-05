@@ -117,7 +117,30 @@ img {
     list-style: none;
     transition: color var(--animation-transition);
 }
-
+.box-computer-img {
+    position: relative;
+    
+    }
+.text-on-img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 370px;
+    height: 70px;
+    
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-transform: uppercase;
+    color: white;
+    background: rgba(47, 48, 58, 0.8);
+    
+    
+    }
 .team-icon {
     display: flex;
     justify-content: center;
@@ -396,6 +419,7 @@ img {
     border-radius: 0px 0px 4px 4px;
     margin-left: 30px;
     text-align: center;
+    background-color: var(--button-color);
 
 }
 
@@ -426,6 +450,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 50%;
     width: 44px;
     height: 44px;
     color: #afb1b8;
@@ -438,8 +463,8 @@ img {
 .link-social-icon:focus {
     color: var(--button-color);
     background-color: var(--accent-color);
-    border-radius: 50%;
-    transition: var(--animation-transition);
+    
+    
 }
 
 .link-social-icon:not(:last-child) {
@@ -675,15 +700,15 @@ img {
     color: white;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   
     cursor: pointer;
-    transition: background var(--animation-transition);
+    transition: background-color var(--animation-transition);
 }
 
 .footer-link-icon:hover,
 .footer-link-icon:focus {
-    background: var(--accent-color);
-    transition: background var(--animation-transition);
+    background-color: var(--accent-color);
+    
 }
 
 /* BACKDROP START*/
