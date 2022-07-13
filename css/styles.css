@@ -239,8 +239,9 @@ img {
 
 .uppertitle {
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.71;
+    margin-bottom: 16px;
     letter-spacing: 0.03em;
     color: var(--primary-text-color);
 
@@ -444,6 +445,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+    list-style: none;
 }
 
 .link-social-icon {
@@ -455,7 +457,7 @@ img {
     height: 44px;
     color: #afb1b8;
     cursor: pointer;
-    transition: var(--animation-transition);
+    transition: color var(--animation-transition); background var(--animation-transition);
     
 }
 
@@ -587,22 +589,35 @@ img {
 
 .cards-list {
     display: flex;
-    flex-wrap: wrap;
-    flex-basis: calc((100% - 90px) / 3);
+    flex-wrap: wrap; 
     margin-left: -30px;
-    margin-bottom: -30px;
+    margin-top: -30px;
   }
   
   .cards-list > .item {
+    border: 1px solid #eeeeee;
+    flex-basis: calc((100% - 90px) / 3);
     margin-left: 30px;
-    margin-top: 30px;
+    margin-bottom: 30px;
     transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  .cards-list .item:hover {
+  .link-img:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
-
+  .link-img {
+    text-decoration: none;
+    display: block;
+    
+}
+.link-img:hover .overlay,
+.link-img:focus .overlay {
+    overflow: hidden;
+    opacity: 1;
+  transform: translateY(0%);
+    background: rgba(33, 150, 243, 0.9);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
 .text {
     margin-top: 4px;
     font-size: 16px;
@@ -769,6 +784,7 @@ img {
 .img-wrapper {
     position: relative;
     overflow: hidden;
+    
 }
 
 .overlay {
@@ -795,13 +811,15 @@ img {
     opacity: 0;
 }
 
-.link-img {
-    text-decoration: none;
-}
-.link-img:hover .overlay,
-.link-img:focus .overlay {
-    overflow: hidden;
-    opacity: 1;
-  transform: translateY(0);
-    background: rgba(33, 150, 243, 0.9);
-}
+
+.text-card {
+    padding: 20px 24px;
+  
+    background-color: var(--button-color);
+    
+    
+  }
+  .social-media-item:not(:last-child) {
+    margin-right: 10px;
+   
+    }
